@@ -4,41 +4,42 @@
 
 {% block body %}
 
-<form>
-  <div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-  </div>
-  <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1">
-  </div>
-   <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1">
-  </div>
-   <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1">
-  </div>
-   <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1">
-  </div>
-  
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
-
-{# {% for supplier in suppliers %} #}
-<div class="container text-center">
-  <div class="row row-cols-3">
-    <div class="col">Column</div>
-    <div class="col">Column</div>
-    <div class="col">Column</div>
-    <div class="col">Column</div>
-  </div>
+{% for supplier in suppliers %}
+<div class="container">
+<div class="row">
+    <div class="col-lg-4">
+        <div class="card card-margin">
+            <div class="card-header no-border">
+                <h5 class="card-title">{{supplier.name}}</h5>
+            </div>
+            <div class="card-body pt-0">
+                <div class="widget-49">
+                    <div class="widget-49-title-wrapper">
+                        <div class="widget-49-date-primary">
+                            <span class="widget-49-date-day">09</span>
+                            <span class="widget-49-date-month">apr</span>
+                        </div>
+                        <div class="widget-49-meeting-info">
+                            <span class="widget-49-pro-title">PRO-08235 DeskOpe. Website</span>
+                            <span class="widget-49-meeting-time">12:00 to 13.30 Hrs</span>
+                        </div>
+                    </div>
+                    <ol class="widget-49-meeting-points">
+                        <li class="widget-49-meeting-item"><span>Expand module is removed</span></li>
+                        <li class="widget-49-meeting-item"><span>Data migration is in scope</span></li>
+                        <li class="widget-49-meeting-item"><span>Session timeout increase to 30 minutes</span></li>
+                    </ol>
+                    <div class="widget-49-meeting-action">
+                        <a href="#" class="btn btn-sm btn-flash-border-primary">View All</a>
+                    </div>
+                    <button>Delete</button>
+                    <button href="newSup.html.twig">Create new</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-{# {% endfor %} #}
+</div>
+{% endfor %}
 
 {% endblock %}

@@ -42,16 +42,6 @@ class Supplier
      */
     private $mode;
 
-    
-    /**
-     * @ORM\Column(type="string")
-     */
-    private $created_at;
-
-    /**
-     * @ORM\Column(type="string")
-     */
-    private $updated_at;
 
     public function getId(): ?int
     {
@@ -103,9 +93,9 @@ class Supplier
         $this-> mode = $mode;
     }
 
-    public function getCreated()
+   /*  public function getCreated()
     {
-        return $this->created_at;
+        return $this->created;
     }
     public function setCreated($created_at)
     {
@@ -119,5 +109,5 @@ class Supplier
     public function setUpdated($updated_at)
     {
         $this-> updated_at = $updated_at;
-    }
+    } */
 }

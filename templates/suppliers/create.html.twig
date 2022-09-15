@@ -1,0 +1,69 @@
+{%  extends 'base.html.twig'%}
+
+{% block title %} Symfony tech test {% endblock %}
+
+{% block body %}
+  <section class="intro">
+    <div class="bg-image h-100">
+      <div class="mask d-flex align-items-center h-100">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-12 col-md-10 col-lg-7 col-xl-6">
+              <div class="card mask-custom">
+                <div class="card-body p-5 text-white">
+
+                  <div class="my-4">
+
+                    <h2 class="text-center mb-5">Register Form</h2>
+
+                    <form>
+                      <!-- 2 column grid layout with text inputs for the first and last names -->
+                      <div class="row">
+                        <div class="col-12 col-md-6 mb-4">
+                          <div class="form-outline form-white">
+                            <input name="name" type="text" id="form3Example1" class="form-control form-control-lg" />
+                            <label class="form-label" for="form3Example1">Name</label>
+                          </div>
+                        </div>
+                        <div class="col-12 col-md-6 mb-4">
+                          <div class="form-outline form-white">
+                            <input name="name" type="tel" id="form3Example2" class="form-control form-control-lg" />
+                            <label class="form-label" for="form3Example2">Phone number</label>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- Email input -->
+                      <div class="form-outline form-white mb-4">
+                        <input name="email" type="email" id="form3Example3" class="form-control form-control-lg" />
+                        <label class="form-label" for="form3Example3">Email address</label>
+                      </div>
+
+                      <!-- Password input -->
+                      <div class="form-outline form-white mb-4">
+                        <input name="type" type="test" id="form3Example4" class="form-control form-control-lg" />
+                        <label class="form-label" for="form3Example4">Type</label>
+                      </div>
+
+                      <div class="form-outline form-white mb-4">
+                        <input name="updated_at" type="password" id="form3Example4" class="form-control form-control-lg" />
+                        <label class="form-label" for="form3Example4">Mode</label>
+                      </div>
+
+                      <!-- Submit button -->
+                      <button type="submit" class="btn btn-light btn-block mb-4">save</button>
+
+                      </div>
+                    </form>
+
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}
