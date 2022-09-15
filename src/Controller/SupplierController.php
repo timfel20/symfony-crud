@@ -12,6 +12,7 @@
   use Symfony\Component\Form\Extension\Core\Type\TextType;
   use Symfony\Component\Form\Extension\Core\Type\TextareaType;
   use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\HttpKernel\Event\ResponseEvent;
 
   class SupplierController extends AbstractController{
     /**
@@ -72,6 +73,8 @@
                 $entityManager = $this->getDoctrine()->getManager();
                 $entityManager->persist($supplier);
                 $entityManager->flush();
+
+                $this->addFlash('notice','Saved successfully');
         
                 return $this->redirectToRoute('supplier_list');
               }
@@ -81,11 +84,78 @@
               ));
         }
 
-        public function show(){
+         /**
+         * @Route("/delete/{id}", name="delete_list")
+         * @Method({"DELETE"})
+         */
+        public function delete(Request $request, $id) {
+            $target = $this->getDoctrine()->getRepository(Supplier::class)->find($id);
+      
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->remove($target);
+            $entityManager->flush();
+      
+            $response = new Response();
+            $response->send();
 
-        }
+            return $this->redirectToRoute('supplier_list');
+          }
 
       
+
+    /**
+     * @Route("/edit/{id}", name="edit_suppliers")
+     * Method({"GET", "POST"})
+     */
+    public function edit(Request $request, $id) {
+        $supplier = new Supplier();
+        $supplier = $this->getDoctrine()->getRepository(Supplier::class)->find($id);
+
+        $form = $this->createFormBuilder($supplier)
+        ->add('name', textType::class, array('attr'=> array(
+            'class' => 'form-control'
+        )))
+        ->add('email', textType::class, array('attr'=> array(
+            'class' => 'form-control'
+        )))
+        ->add('phone', textType::class, array('attr'=> array(
+            'class' => 'form-control'
+        )))
+        ->add('type', textType::class, array('attr'=> array(
+            'class' => 'form-control'
+        )))
+        ->add('mode', textType::class, array('attr'=> array(
+            'class' => 'form-control'
+        )))
+       /*  ->add('created_at', textType::class, array('attr'=> array(
+            'class' => 'form-control'
+        )))
+        ->add('updated_at', textType::class, array('attr'=> array(
+            'class' => 'form-control'
+        ))) */
+        ->add('save', submitType::class, array(
+            'label' => 'save',
+            'attr' => array('class' => 'btn btn-primary mt-3')
+        ))
+        ->getForm();
+  
+        $form->handleRequest($request);
+  
+        if($form->isSubmitted() && $form->isValid()) {
+  
+          $entityManager = $this->getDoctrine()->getManager();
+          $entityManager->flush();
+  
+          return $this->redirectToRoute('supplier_list');
+        }
+  
+        return $this->render('suppliers/edit.html.twig', array(
+          'form' => $form->createView()
+        ));
+      }
+
+      
+
         /**
          * @Route("/supplier/save")
          */

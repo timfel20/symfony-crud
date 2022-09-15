@@ -32,8 +32,9 @@
                     <div class="widget-49-meeting-action">
                         <a href="#" class="btn btn-sm btn-flash-border-primary">View All</a>
                     </div>
-                    <button>Delete</button>
-                    <button href="newSup.html.twig">Create new</button>
+                    <button><a href="/delete/{{ supplier.id }}" >Delete</a></button>
+                    <button href="/create">Create new</button>
+                    <button><a href="/edit/{{ supplier.id }}" >Edit</a></button>
                 </div>
             </div>
         </div>
@@ -41,5 +42,13 @@
 </div>
 </div>
 {% endfor %}
+{% for message in app.flashes('notice') %}
+   <div class="alert alert-success">
+   {{message}}
+   </div>
+{% endfor %}
 
+{% endblock %}
+{% block javascripts %}
+  <script src="/js/supplier.js"></script>
 {% endblock %}
