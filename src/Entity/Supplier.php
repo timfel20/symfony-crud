@@ -37,11 +37,6 @@ class Supplier
      */
     private $type;
 
-    /**
-     * @ORM\Column(type="boolean")
-     */
-    private $mode;
-
 
     public function getId(): ?int
     {
@@ -83,31 +78,4 @@ class Supplier
     {
         $this-> type = $type;
     }
-
-    public function getMode()
-    {
-        return $this->mode;
-    }
-    public function setMode($mode)
-    {
-        $this-> mode = $mode;
-    }
-
-   /*  public function getCreated()
-    {
-        return $this->created;
-    }
-    public function setCreated($created_at)
-    {
-        $this-> created_at = $created_at;
-    }
-
-    public function getUpdated()
-    {
-        return $this->updated_at;
-    }
-    public function setUpdated($updated_at)
-    {
-        $this-> updated_at = $updated_at;
-    } */
 }

@@ -56,15 +56,6 @@ use Symfony\Component\HttpKernel\Event\ResponseEvent;
                 'complement' => 'complement'
                 )
             ))
-            ->add('mode', textType::class, array('attr'=> array(
-                'class' => 'form-control'
-            )))
-           /*  ->add('created_at', textType::class, array('attr'=> array(
-                'class' => 'form-control'
-            )))
-            ->add('updated_at', textType::class, array('attr'=> array(
-                'class' => 'form-control'
-            ))) */
             ->add('save', submitType::class, array(
                 'label' => 'save',
                 'attr' => array('class' => 'btn btn-primary mt-3')
@@ -115,6 +106,8 @@ use Symfony\Component\HttpKernel\Event\ResponseEvent;
      */
     public function edit(Request $request, $id) {
         $supplier = new Supplier();
+
+        $supplier = $this->getDoctrine()->getRepository(Supplier::class)->find($id);
         $form = $this->createFormBuilder($supplier)
         ->add('name', textType::class, array('attr'=> array(
             'class' => 'form-control mb-2'
@@ -133,15 +126,6 @@ use Symfony\Component\HttpKernel\Event\ResponseEvent;
             'complement' => 'complement'
             )
         ))
-        ->add('mode', textType::class, array('attr'=> array(
-            'class' => 'form-control'
-        )))
-       /*  ->add('created_at', textType::class, array('attr'=> array(
-            'class' => 'form-control'
-        )))
-        ->add('updated_at', textType::class, array('attr'=> array(
-            'class' => 'form-control'
-        ))) */
         ->add('save', submitType::class, array(
             'label' => 'save',
             'attr' => array('class' => 'btn btn-primary mt-3')
