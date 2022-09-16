@@ -12,6 +12,7 @@
   use Symfony\Component\Form\Extension\Core\Type\TextType;
   use Symfony\Component\Form\Extension\Core\Type\TextareaType;
   use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+  use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\HttpKernel\Event\ResponseEvent;
 
   class SupplierController extends AbstractController{
@@ -39,17 +40,22 @@ use Symfony\Component\HttpKernel\Event\ResponseEvent;
             $supplier = new Supplier();
             $form = $this->createFormBuilder($supplier)
             ->add('name', textType::class, array('attr'=> array(
-                'class' => 'form-control'
+                'class' => 'form-control mb-2'
             )))
             ->add('email', textType::class, array('attr'=> array(
-                'class' => 'form-control'
+                'class' => 'form-control mb-2'
             )))
             ->add('phone', textType::class, array('attr'=> array(
                 'class' => 'form-control'
             )))
-            ->add('type', textType::class, array('attr'=> array(
-                'class' => 'form-control'
-            )))
+            ->add('type', ChoiceType::class, array(
+                'attr' => array('class' => 'btn btn-primary mt-3 mb-3 ml-2' ),
+                'choices' => array(
+                'hotel' => 'hotel', 
+                'court' => 'court', 
+                'complement' => 'complement'
+                )
+            ))
             ->add('mode', textType::class, array('attr'=> array(
                 'class' => 'form-control'
             )))
@@ -109,21 +115,24 @@ use Symfony\Component\HttpKernel\Event\ResponseEvent;
      */
     public function edit(Request $request, $id) {
         $supplier = new Supplier();
-        $supplier = $this->getDoctrine()->getRepository(Supplier::class)->find($id);
-
         $form = $this->createFormBuilder($supplier)
         ->add('name', textType::class, array('attr'=> array(
-            'class' => 'form-control'
+            'class' => 'form-control mb-2'
         )))
         ->add('email', textType::class, array('attr'=> array(
-            'class' => 'form-control'
+            'class' => 'form-control mb-2'
         )))
         ->add('phone', textType::class, array('attr'=> array(
             'class' => 'form-control'
         )))
-        ->add('type', textType::class, array('attr'=> array(
-            'class' => 'form-control'
-        )))
+        ->add('type', ChoiceType::class, array(
+            'attr' => array('class' => 'btn btn-primary mt-3 mb-3 ml-2' ),
+            'choices' => array(
+            'hotel' => 'hotel', 
+            'court' => 'court', 
+            'complement' => 'complement'
+            )
+        ))
         ->add('mode', textType::class, array('attr'=> array(
             'class' => 'form-control'
         )))

@@ -5,42 +5,26 @@
 {% block body %}
 
 {% for supplier in suppliers %}
-<div class="container">
-<div class="row">
-    <div class="col-lg-4">
-        <div class="card card-margin">
-            <div class="card-header no-border">
-                <h5 class="card-title">{{supplier.name}}</h5>
-            </div>
-            <div class="card-body pt-0">
-                <div class="widget-49">
-                    <div class="widget-49-title-wrapper">
-                        <div class="widget-49-date-primary">
-                            <span class="widget-49-date-day">09</span>
-                            <span class="widget-49-date-month">apr</span>
+
+<div>
+       <div class="container mt-5">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card p-3">
+                        <div class="d-flex flex-row mb-3">
+                            <div class="d-flex flex-column mb-1"><span>{{supplier.name}}</span>
+                            <div class="d-flex flex-column mb-1"><span>{{supplier.email}}</span>
+                            <div class="d-flex flex-column mb-1"><span>{{supplier.phone}}</span>
                         </div>
-                        <div class="widget-49-meeting-info">
-                            <span class="widget-49-pro-title">PRO-08235 DeskOpe. Website</span>
-                            <span class="widget-49-meeting-time">12:00 to 13.30 Hrs</span>
-                        </div>
+                        <h6>Get more context on your users with stripe data inside our platform.</h6>
+                        <div class="d-flex justify-content-between install mt-3"><span>Installed 172 times</span><span class="text-primary">View&nbsp;<i class="fa fa-angle-right"></i></span></div>
+                        <button><a href="/delete/{{ supplier.id }}" >Delete</a></button>
+                        <button><a href="/create" >Create</a></button>
+                        <button><a href="/edit/{{ supplier.id }}" >Edit</a></button>
                     </div>
-                    <ol class="widget-49-meeting-points">
-                        <li class="widget-49-meeting-item"><span>Expand module is removed</span></li>
-                        <li class="widget-49-meeting-item"><span>Data migration is in scope</span></li>
-                        <li class="widget-49-meeting-item"><span>Session timeout increase to 30 minutes</span></li>
-                    </ol>
-                    <div class="widget-49-meeting-action">
-                        <a href="#" class="btn btn-sm btn-flash-border-primary">View All</a>
-                    </div>
-                    <button><a href="/delete/{{ supplier.id }}" >Delete</a></button>
-                    <button href="/create">Create new</button>
-                    <button><a href="/edit/{{ supplier.id }}" >Edit</a></button>
                 </div>
             </div>
         </div>
-    </div>
-</div>
-</div>
 {% endfor %}
 {% for message in app.flashes('notice') %}
    <div class="alert alert-success">
@@ -52,3 +36,24 @@
 {% block javascripts %}
   <script src="/js/supplier.js"></script>
 {% endblock %}
+
+
+{# <div>
+       <div class="container mt-5">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card p-3">
+                        <div class="d-flex flex-row mb-3">
+                            <div class="d-flex flex-column mb-1"><span>{{supplier.name}}</span>
+                            <div class="d-flex flex-column mb-1"><span>{{supplier.email}}</span>
+                            <div class="d-flex flex-column mb-1"><span>{{supplier.phone}}</span>
+                        </div>
+                        <h6>Get more context on your users with stripe data inside our platform.</h6>
+                        <div class="d-flex justify-content-between install mt-3"><span>Installed 172 times</span><span class="text-primary">View&nbsp;<i class="fa fa-angle-right"></i></span></div>
+                        <button><a href="/delete/{{ supplier.id }}" >Delete</a></button>
+                        <button><a href="/create" >Create</a></button>
+                        <button><a href="/edit/{{ supplier.id }}" >Edit</a></button>
+                    </div>
+                </div>
+            </div>
+        </div> #}
