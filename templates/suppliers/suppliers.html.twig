@@ -7,20 +7,22 @@
 {% for supplier in suppliers %}
 
 <div>
-       <div class="container mt-5">
+       <div class="container mt-5 col" style="max-width: fit-content">
             <div class="row">
-                <div class="col-md-6">
+                <div class="">
                     <div class="card p-3">
-                        <div class="d-flex flex-row mb-3">
+                        <div class="mb-3">
                             <div class="d-flex flex-column mb-1"><span>{{supplier.name}}</span>
                             <div class="d-flex flex-column mb-1"><span>{{supplier.email}}</span>
                             <div class="d-flex flex-column mb-1"><span>{{supplier.phone}}</span>
                         </div>
                         <h6>Get more context on your users with stripe data inside our platform.</h6>
-                        <div class="d-flex justify-content-between install mt-3"><span>Installed 172 times</span><span class="text-primary">View&nbsp;<i class="fa fa-angle-right"></i></span></div>
-                        <button><a href="/delete/{{ supplier.id }}" >Delete</a></button>
-                        <button><a href="/create" >Create</a></button>
-                        <button><a href="/edit/{{ supplier.id }}" >Edit</a></button>
+                        <div class="d-flex justify-content-between install mt-3"><span>{{supplier.type}}</span><span class="text-primary">View&nbsp;<i class="fa fa-angle-right"></i></span></div>
+                        <div class=" buttons d-flex flex-row">
+                            <button><a href="/delete/{{ supplier.id }}" >Delete</a></button>
+                            <button><a href="/create" >Create</a></button>
+                            <button><a href="/edit/{{ supplier.id }}" >Edit</a></button>
+                        </div>    
                     </div>
                 </div>
             </div>
