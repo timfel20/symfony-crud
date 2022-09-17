@@ -37,6 +37,11 @@ class Supplier
      */
     private $type;
 
+     /**
+     * @ORM\Column(type="boolean")
+     */
+    private $status;
+
 
     public function getId(): ?int
     {
@@ -77,5 +82,14 @@ class Supplier
     public function setType($type)
     {
         $this-> type = $type;
+    }
+
+    public function getStatus()
+    {
+        return $this->status;
+    }
+    public function setStatus($status)
+    {
+        $this-> status = $status;
     }
 }

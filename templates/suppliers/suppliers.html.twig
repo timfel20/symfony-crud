@@ -21,7 +21,12 @@
                         <h6>Get more context on your users with stripe data inside our platform.</h6>
                         <div class="d-flex justify-content-between align-items-center install mt-3 mb-3">
                             <span class="p-1 btn-warning">{{supplier.type}}</span>
-                            <span class="text-primary ">View</span>
+                            {% if supplier.status == false %}
+                                <span style="color:#2ECC71">active <img style="width:15px; height:15px" src="https://img.icons8.com/fluency-systems-filled/48/40C057/ok--v1.png"/></span>
+                            {% endif %}
+                             {% if supplier.status == true %}
+                                <span style="color: #adafae">inactive <img style="width:15px; height:15px" src="https://img.icons8.com/windows/32/000000/active-state.png"/></span>
+                            {% endif %}
                         </div>
                         <div class=" buttons d-flex flex-row ml-0">
                             <button><a href="/delete/{{ supplier.id }}" >Delete</a></button>

@@ -49,11 +49,18 @@ use Symfony\Component\HttpKernel\Event\ResponseEvent;
                 'class' => 'form-control'
             )))
             ->add('type', ChoiceType::class, array(
-                'attr' => array('class' => 'btn btn-primary mt-3 mb-3 ml-2' ),
+                'attr' => array('class' => 'btn btn-primary mt-3 mb-3 ml-3' ),
                 'choices' => array(
                 'hotel' => 'hotel', 
                 'court' => 'court', 
                 'complement' => 'complement'
+                )
+            ))
+            ->add('status', ChoiceType::class, array(
+                'attr' => array('class' => 'btn btn-primary mt-3 mb-3 ml-2' ),
+                'choices' => array(
+                'active' => 'active', 
+                'inactive' => 'inactive', 
                 )
             ))
             ->add('save', submitType::class, array(
@@ -119,11 +126,18 @@ use Symfony\Component\HttpKernel\Event\ResponseEvent;
             'class' => 'form-control'
         )))
         ->add('type', ChoiceType::class, array(
-            'attr' => array('class' => 'btn btn-primary mt-3 mb-3 ml-2' ),
+            'attr' => array('class' => 'btn btn-primary mt-3 mb-3 ml-3' ),
             'choices' => array(
             'hotel' => 'hotel', 
             'court' => 'court', 
             'complement' => 'complement'
+            )
+        ))
+        ->add('status', ChoiceType::class, array(
+            'attr' => array('class' => 'btn btn-primary mt-3 mb-3 ml-2' ),
+            'choices' => array(
+            'active' => 'active', 
+            'inactive' => 'inactive', 
             )
         ))
         ->add('save', submitType::class, array(
