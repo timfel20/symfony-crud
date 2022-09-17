@@ -3,16 +3,36 @@
 {% block title %}Register{% endblock %}
 
 {% block body %}
-   <div style="display:grid; grid-template-columns:max-content; justify-content:center">
-        <h1 style="font-size: 29px">Register</h1>
-        {{ form_start(registrationForm) }}
-            {{ form_row(registrationForm.email) }}
-            {{ form_row(registrationForm.plainPassword, {
-                label: 'Password'
-            }) }}
-            {# {{ form_row(registrationForm.agreeTerms) }} #}
+<section class="intro mt-3">
+    <div class="bg-image h-100">
+      <div class="mask d-flex align-items-center h-100">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-12 col-md-10 col-lg-7 col-xl-6">
+              <div class="card mask-custom">
+                <div class="card-body p-5 text-white" style="margin-top: -40px; margin-bottom:-40px">
 
-            <button type="submit" class="btn">Register</button>
-        {{ form_end(registrationForm) }}
-   </div>
+                  <div class="my-4">
+                    <div style="display:grid; grid-template-columns:max-content; justify-content:center">
+                            <h1 style="font-size: 29px">Register</h1>
+                            {{ form_start(registrationForm) }}
+                                {{ form_row(registrationForm.email) }}
+                                {{ form_row(registrationForm.plainPassword, {
+                                    label: 'Password'
+                                }) }}
+                                {# {{ form_row(registrationForm.agreeTerms) }} #}
+
+                                <button type="submit" class="btn-primary mt-3 mb-2" style="border-radius: 4px; border:none">Register</button>
+                            {{ form_end(registrationForm) }}
+                    </div>
+                    </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 {% endblock %}

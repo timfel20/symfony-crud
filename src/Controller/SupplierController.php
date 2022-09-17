@@ -13,7 +13,9 @@
   use Symfony\Component\Form\Extension\Core\Type\TextareaType;
   use Symfony\Component\Form\Extension\Core\Type\SubmitType;
   use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use Symfony\Component\HttpKernel\Event\ResponseEvent;
+  use Symfony\Component\HttpKernel\Event\ResponseEvent;
+  use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+
 
   class SupplierController extends AbstractController{
     /**
@@ -56,12 +58,10 @@ use Symfony\Component\HttpKernel\Event\ResponseEvent;
                 'complement' => 'complement'
                 )
             ))
-            ->add('status', ChoiceType::class, array(
+            ->add('status', CheckboxType::class, array(
                 'attr' => array('class' => 'btn btn-primary mt-3 mb-3 ml-2' ),
-                'choices' => array(
-                'active' => 'active', 
-                'inactive' => 'inactive', 
-                )
+                'label'    => 'active?',
+                'required' => false,
             ))
             ->add('save', submitType::class, array(
                 'label' => 'save',
