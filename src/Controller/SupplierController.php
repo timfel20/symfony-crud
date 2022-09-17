@@ -133,12 +133,10 @@
             'complement' => 'complement'
             )
         ))
-        ->add('status', ChoiceType::class, array(
+        ->add('status', CheckboxType::class, array(
             'attr' => array('class' => 'btn btn-primary mt-3 mb-3 ml-2' ),
-            'choices' => array(
-            'active' => 'active', 
-            'inactive' => 'inactive', 
-            )
+            'label'    => 'active?',
+            'required' => false,
         ))
         ->add('save', submitType::class, array(
             'label' => 'save',
