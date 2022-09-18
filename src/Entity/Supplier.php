@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\SupplierRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * @ORM\Entity(repositoryClass=SupplierRepository::class)
@@ -41,6 +42,18 @@ class Supplier
      * @ORM\Column(type="boolean")
      */
     private $status;
+
+    /**
+     * @ORM\Column(type="datetime_immutable")
+     * @Gedmo\Timestampable(on="create")
+     */
+    private $createdAt;
+
+    /**
+     * @ORM\Column(type="datetime_immutable")
+     * @Gedmo\Timestampable(on="update")
+     */
+    private $updatedAt;
 
 
     public function getId(): ?int
@@ -92,4 +105,16 @@ class Supplier
     {
         $this-> status = $status;
     }
+
+    public function getCreatedAt(): ?\DateTimeImmutable
+    {
+        return $this->createdAt;
+    }
+
+
+    public function getUpdatedAt(): ?\DateTimeImmutable
+    {
+        return $this->updatedAt;
+    }
+
 }

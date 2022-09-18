@@ -83,7 +83,7 @@
                 return $this->redirectToRoute('supplier_list');
               }
         
-              return $this->render('suppliers/newSup.html.twig', array(
+              return $this->render('suppliers/create.html.twig', array(
                 'form' => $form->createView()
               ));
         }
